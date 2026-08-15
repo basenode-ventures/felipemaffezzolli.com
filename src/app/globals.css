@@ -1,21 +1,21 @@
 :root {
   color-scheme: dark;
 
-  --bg: #07090c;
-  --bg-elevated: #0e1218;
-  --bg-panel: #121820;
-  --fg: #e8ecef;
-  --muted: #8b949e;
-  --muted-strong: #b6c0c8;
-  --accent: #6fadb0;
-  --accent-soft: rgba(111, 173, 176, 0.14);
-  --accent-border: rgba(111, 173, 176, 0.35);
-  --hairline: rgba(232, 236, 239, 0.08);
-  --hairline-strong: rgba(232, 236, 239, 0.14);
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  /* ink / paper system — no teal, no acid accent */
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-panel: #111111;
+  --fg: #ece8e1;
+  --muted: #8a8680;
+  --muted-strong: #cfc8be;
+  --focus: #b7a994;
+  --lift: rgba(236, 232, 225, 0.04);
+  --lift-strong: rgba(236, 232, 225, 0.07);
+  --hairline: rgba(236, 232, 225, 0.06);
+  --hairline-strong: rgba(236, 232, 225, 0.12);
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.75);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --radius: 14px;
-  --content: min(42rem, calc(100% - 2.5rem));
+  --radius: 8px;
   --page-pad: clamp(1.25rem, 4vw, 2.75rem);
 }
 
@@ -58,12 +58,12 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: var(--accent-soft);
+  background: rgba(183, 169, 148, 0.28);
   color: var(--fg);
 }
 

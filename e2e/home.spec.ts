@@ -44,12 +44,34 @@ test("projects page lists companies without invented metrics", async ({
   await expect(
     page.getByRole("heading", { name: "O que construo" }),
   ).toBeVisible();
-  for (const name of ["Hub XP", "Élégant", "4ever", "Prontu", "Seven Pass"]) {
+  for (const name of ["Hub XP", "Élégant", "4ever", "Prontu", "7Group"]) {
     await expect(page.getByRole("heading", { name })).toBeVisible();
   }
+
   await expect(
-    page.getByRole("link", { name: /Visitar/ }).first(),
-  ).toHaveAttribute("href", "https://www.hubxp.com.br");
+    page.getByRole("link", { name: /Visitar/ }).filter({
+      has: page.locator('[href="https://www.hubxp.com.br"]'),
+    }),
+  ).toHaveCount(1);
+
+  const elegant = page
+    .getByRole("listitem")
+    .filter({ has: page.getByRole("heading", { name: "Élégant" }) });
+  await expect(elegant.getByRole("link", { name: /Visitar/ })).toHaveAttribute(
+    "href",
+    "https://elegant.club",
+  );
+  await expect(elegant.getByText("Sem site público")).toHaveCount(0);
+
+  const sevenGroup = page
+    .getByRole("listitem")
+    .filter({ has: page.getByRole("heading", { name: "7Group" }) });
+  await expect(
+    sevenGroup.getByRole("link", { name: /Visitar/ }),
+  ).toHaveAttribute("href", "https://7group.com.br");
+  await expect(
+    sevenGroup.getByText("Produtora 360º de eventos corporativos e sociais."),
+  ).toBeVisible();
 });
 
 test("contact page exposes verified socials", async ({ page }) => {

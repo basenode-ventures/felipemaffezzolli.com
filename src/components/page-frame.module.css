@@ -13,19 +13,19 @@
 
 .eyebrow {
   margin: 0 0 0.85rem;
-  color: var(--accent);
-  font-size: 0.75rem;
+  color: var(--muted);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .title {
   margin: 0;
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(2.3rem, 5.5vw, 3.35rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
   line-height: 1.05;
   text-wrap: balance;
 }
@@ -34,7 +34,7 @@
   margin: 0.9rem 0 0;
   max-width: 34rem;
   color: var(--muted-strong);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.55;
 }
 
@@ -46,7 +46,7 @@
 @keyframes enter {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;

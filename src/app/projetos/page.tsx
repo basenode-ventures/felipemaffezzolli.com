@@ -6,7 +6,7 @@ import styles from "./projetos.module.css";
 export const metadata: Metadata = {
   title: "Projetos",
   description:
-    "Empresas e produtos de Felipe Maffezzolli — Hub XP, Élégant, 4ever, Prontu e Seven Pass.",
+    "Empresas e produtos de Felipe Maffezzolli — Hub XP, Élégant, 4ever, Prontu e 7Group.",
   alternates: { canonical: "/projetos" },
 };
 

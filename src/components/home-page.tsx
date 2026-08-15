@@ -5,7 +5,6 @@ export function HomePage() {
   return (
     <main className={styles.main}>
       <section className={styles.hero} aria-labelledby="name">
-        <p className={styles.kicker}>São Paulo · Hub XP</p>
         <h1 id="name" className={styles.name}>
           <span className={styles.first}>Felipe</span>
           <span className={styles.last}>Maffezzolli</span>

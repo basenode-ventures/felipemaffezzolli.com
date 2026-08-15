@@ -41,7 +41,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Stack
 
 - Next.js (App Router) + TypeScript
-- Google fonts via `next/font` (Fraunces + Outfit)
+- Google fonts via `next/font` (Archivo + IBM Plex Sans)
 - Vitest + Playwright
 - Zero secrets / zero env vars
 

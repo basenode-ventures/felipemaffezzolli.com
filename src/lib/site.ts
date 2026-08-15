@@ -84,6 +84,7 @@ export const projects: Project[] = [
   {
     name: "Élégant",
     summary: "Eventos exclusivos B2B2C por convite.",
+    href: "https://elegant.club",
   },
   {
     name: "4ever",
@@ -96,8 +97,9 @@ export const projects: Project[] = [
     href: "https://useprontu.com.br",
   },
   {
-    name: "Seven Pass",
-    summary: "Produto e operação em que Felipe está envolvido.",
+    name: "7Group",
+    summary: "Produtora 360º de eventos corporativos e sociais.",
+    href: "https://7group.com.br",
   },
 ];
 

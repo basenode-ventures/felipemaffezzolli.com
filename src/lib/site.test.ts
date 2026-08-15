@@ -79,16 +79,22 @@ describe("site content", () => {
       "Élégant",
       "4ever",
       "Prontu",
-      "Seven Pass",
+      "7Group",
     ]);
+    expect(projects.find((p) => p.name === "Élégant")?.href).toBe(
+      "https://elegant.club",
+    );
     expect(projects.find((p) => p.name === "4ever")?.href).toBe(
       "https://use4ever.com",
     );
     expect(projects.find((p) => p.name === "Prontu")?.href).toBe(
       "https://useprontu.com.br",
     );
-    expect(projects.find((p) => p.name === "Élégant")?.href).toBeUndefined();
-    expect(projects.find((p) => p.name === "Seven Pass")?.href).toBeUndefined();
+    expect(projects.find((p) => p.name === "7Group")).toMatchObject({
+      summary: "Produtora 360º de eventos corporativos e sociais.",
+      href: "https://7group.com.br",
+    });
+    expect(projects.some((p) => p.name === "Seven Pass")).toBe(false);
   });
 
   it("has a short Portuguese about intro", () => {

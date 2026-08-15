@@ -5,8 +5,8 @@
   display: grid;
   place-items: start center;
   padding: min(12vh, 5rem) 1rem 1.5rem;
-  background: rgba(4, 6, 9, 0.72);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
   animation: fadeIn 160ms var(--ease);
 }
 
@@ -14,19 +14,19 @@
   width: min(100%, 34rem);
   overflow: hidden;
   border: 1px solid var(--hairline-strong);
-  border-radius: calc(var(--radius) + 4px);
-  background: linear-gradient(180deg, #141a22 0%, var(--bg-elevated) 100%);
+  border-radius: calc(var(--radius) + 2px);
+  background: var(--bg-elevated);
   box-shadow: var(--shadow);
   animation: riseIn 220ms var(--ease);
 }
 
 .top {
-  padding: 1.1rem 1.15rem 0.35rem;
+  padding: 1.05rem 1.1rem 0.3rem;
 }
 
 .title {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -40,7 +40,7 @@
 
 .search {
   display: block;
-  padding: 0.65rem 1rem 0.75rem;
+  padding: 0.6rem 1rem 0.75rem;
   border-bottom: 1px solid var(--hairline);
 }
 
@@ -61,7 +61,7 @@
 
 .list {
   margin: 0;
-  padding: 0.45rem;
+  padding: 0.4rem;
   max-height: min(48vh, 22rem);
   overflow: auto;
   list-style: none;
@@ -70,7 +70,7 @@
 .group {
   padding: 0.55rem 0.7rem 0.3rem;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -84,9 +84,9 @@
   gap: 0.75rem;
   width: 100%;
   margin: 0;
-  padding: 0.7rem 0.75rem;
+  padding: 0.68rem 0.7rem;
   border: 0;
-  border-radius: 10px;
+  border-radius: 6px;
   background: transparent;
   color: inherit;
   text-align: left;
@@ -94,8 +94,8 @@
 }
 
 .optionActive {
-  background: var(--accent-soft);
-  box-shadow: inset 3px 0 0 var(--accent);
+  background: var(--lift-strong);
+  box-shadow: inset 2px 0 0 var(--fg);
 }
 
 .optionLabel {
@@ -125,10 +125,10 @@
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
   margin: 0;
-  padding: 0.7rem 1rem 0.9rem;
+  padding: 0.65rem 1rem 0.85rem;
   border-top: 1px solid var(--hairline);
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.02em;
 }
 
@@ -156,11 +156,11 @@
 @keyframes riseIn {
   from {
     opacity: 0;
-    transform: translateY(-8px) scale(0.985);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -172,7 +172,7 @@
 
   .panel {
     width: 100%;
-    border-radius: 18px 18px 0 0;
+    border-radius: 12px 12px 0 0;
     animation: sheetIn 240ms var(--ease);
   }
 
@@ -190,7 +190,7 @@
 @keyframes sheetIn {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;

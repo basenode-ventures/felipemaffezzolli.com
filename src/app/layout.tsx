@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Outfit } from "next/font/google";
+import { Archivo, IBM_Plex_Sans } from "next/font/google";
 import { SiteShell } from "@/components/site-shell";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Archivo({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  axes: ["SOFT", "opsz"],
 });
 
-const sans = Outfit({
+const sans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07090c",
+  themeColor: "#000000",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
