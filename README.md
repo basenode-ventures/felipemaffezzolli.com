@@ -1,8 +1,8 @@
 # Felipe Maffezzolli
 
-Personal homepage for [felipemaffezzolli.com](https://felipemaffezzolli.com).
+Personal site for [felipemaffezzolli.com](https://felipemaffezzolli.com).
 
-A single dark page: name, one line, a few verified links. Built with Next.js for Vercel.
+Portuguese UI with home, about, projects, contact, and a ⌘K command palette. Built with Next.js for Vercel — no environment variables.
 
 ## Deploy on Vercel
 
@@ -41,6 +41,15 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Stack
 
 - Next.js (App Router) + TypeScript
-- Google fonts via `next/font` (Instrument Serif + Manrope)
+- Google fonts via `next/font` (Fraunces + Outfit)
 - Vitest + Playwright
 - Zero secrets / zero env vars
+
+## Routes
+
+| Path | Content |
+| --- | --- |
+| `/` | Home |
+| `/sobre` | Bio + career timeline |
+| `/projetos` | Companies and products |
+| `/contato` | Verified social links |

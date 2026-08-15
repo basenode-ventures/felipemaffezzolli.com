@@ -1,48 +1,100 @@
 import { describe, expect, it } from "vitest";
-import { SITE, links } from "./site";
+import {
+  SITE,
+  aboutIntro,
+  contactLinks,
+  navItems,
+  projects,
+  roles,
+} from "./site";
 
 describe("site content", () => {
   it("exposes the canonical identity", () => {
     expect(SITE.name).toBe("Felipe Maffezzolli");
-    expect(SITE.subtitle).toBe("Fundador da Hub XP");
+    expect(SITE.subtitle).toBe("Fundador e construtor");
     expect(SITE.email).toBe("felipe@hubxp.com.br");
     expect(SITE.url).toBe("https://felipemaffezzolli.com");
+    expect(SITE.locale).toBe("pt-BR");
   });
 
-  it("only includes verified links", () => {
-    expect(links.map((link) => link.label)).toEqual([
-      "GitHub",
+  it("ships the Portuguese IA routes", () => {
+    expect(navItems.map((item) => item.href)).toEqual([
+      "/sobre",
+      "/projetos",
+      "/contato",
+    ]);
+    expect(navItems.map((item) => item.label)).toEqual([
+      "Sobre",
+      "Projetos",
+      "Contato",
+    ]);
+  });
+
+  it("only includes verified contact links", () => {
+    expect(contactLinks.map((link) => link.label)).toEqual([
+      "E-mail",
       "LinkedIn",
-      "Hub XP",
+      "Instagram",
+      "TikTok",
       "X",
-      "Email",
+      "GitHub",
+      "Hub XP",
     ]);
 
-    expect(links.find((l) => l.label === "GitHub")?.href).toBe(
+    expect(contactLinks.find((l) => l.label === "LinkedIn")?.href).toBe(
+      "https://www.linkedin.com/in/felipe-santana-maffezzolli/",
+    );
+    expect(contactLinks.find((l) => l.label === "Instagram")?.href).toBe(
+      "https://www.instagram.com/felipemaffezzolli/",
+    );
+    expect(contactLinks.find((l) => l.label === "TikTok")?.href).toBe(
+      "https://www.tiktok.com/@felipe.maffezzoll",
+    );
+    expect(contactLinks.find((l) => l.label === "GitHub")?.href).toBe(
       "https://github.com/FeMaffezzolli",
     );
-    expect(links.find((l) => l.label === "LinkedIn")?.href).toBe(
-      "https://www.linkedin.com/in/felipe-santana-maffezzolli",
-    );
-    expect(links.find((l) => l.label === "Hub XP")?.href).toBe(
-      "https://www.hubxp.com.br",
-    );
-    expect(links.find((l) => l.label === "X")?.href).toBe(
-      "https://x.com/FeMaffezzolli",
-    );
-    expect(links.find((l) => l.label === "Email")?.href).toBe(
+    expect(contactLinks.find((l) => l.label === "E-mail")?.href).toBe(
       "mailto:felipe@hubxp.com.br",
     );
   });
 
-  it("marks web links as external and email as local", () => {
-    for (const link of links) {
-      if (link.href.startsWith("mailto:")) {
-        expect(link.external).toBeFalsy();
-      } else {
-        expect(link.external).toBe(true);
-        expect(link.href.startsWith("https://")).toBe(true);
-      }
+  it("keeps verified roles without invented titles", () => {
+    expect(roles).toHaveLength(2);
+    expect(roles[0]).toMatchObject({
+      title: "Fundador",
+      org: "Hub XP",
+      period: "set 2021 — presente",
+      location: "São Paulo",
+    });
+    expect(roles[1]).toMatchObject({
+      title: "Content Creator",
+      org: "Rocketseat Experts Club",
+      period: "jun 2021 — mai 2024",
+    });
+  });
+
+  it("lists real projects only", () => {
+    expect(projects.map((project) => project.name)).toEqual([
+      "Hub XP",
+      "Élégant",
+      "4ever",
+      "Prontu",
+      "Seven Pass",
+    ]);
+    expect(projects.find((p) => p.name === "4ever")?.href).toBe(
+      "https://use4ever.com",
+    );
+    expect(projects.find((p) => p.name === "Prontu")?.href).toBe(
+      "https://useprontu.com.br",
+    );
+    expect(projects.find((p) => p.name === "Élégant")?.href).toBeUndefined();
+    expect(projects.find((p) => p.name === "Seven Pass")?.href).toBeUndefined();
+  });
+
+  it("has a short Portuguese about intro", () => {
+    expect(aboutIntro.length).toBeGreaterThan(0);
+    for (const paragraph of aboutIntro) {
+      expect(paragraph.length).toBeGreaterThan(20);
     }
   });
 });

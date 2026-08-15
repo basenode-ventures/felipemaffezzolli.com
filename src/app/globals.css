@@ -1,14 +1,22 @@
 :root {
   color-scheme: dark;
 
-  --bg: #0a0a0a;
-  --bg-lift: #121212;
-  --fg: #f2f0eb;
-  --muted: #8a8680;
-  --muted-hover: #d8d4cc;
-  --focus: #c8c2b6;
-  --hairline: rgba(242, 240, 235, 0.1);
+  --bg: #07090c;
+  --bg-elevated: #0e1218;
+  --bg-panel: #121820;
+  --fg: #e8ecef;
+  --muted: #8b949e;
+  --muted-strong: #b6c0c8;
+  --accent: #6fadb0;
+  --accent-soft: rgba(111, 173, 176, 0.14);
+  --accent-border: rgba(111, 173, 176, 0.35);
+  --hairline: rgba(232, 236, 239, 0.08);
+  --hairline-strong: rgba(232, 236, 239, 0.14);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 14px;
+  --content: min(42rem, calc(100% - 2.5rem));
+  --page-pad: clamp(1.25rem, 4vw, 2.75rem);
 }
 
 *,
@@ -37,11 +45,26 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 4px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
 }
 
 @media (prefers-reduced-motion: reduce) {
