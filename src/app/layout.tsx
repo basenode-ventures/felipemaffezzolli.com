@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Manrope } from "next/font/google";
+import { Archivo, IBM_Plex_Sans } from "next/font/google";
+import { SiteShell } from "@/components/site-shell";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const display = Instrument_Serif({
-  weight: "400",
+const display = Archivo({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
-const sans = Manrope({
+const sans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   applicationName: SITE.name,
   authors: [{ name: SITE.name, url: SITE.url }],
   creator: SITE.name,
-  keywords: [SITE.name, "Hub XP", "fundador"],
+  keywords: [SITE.name, "Hub XP", "fundador", "São Paulo"],
   alternates: {
     canonical: "/",
   },
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#000000",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -63,7 +64,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={SITE.locale} className={`${display.variable} ${sans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }

@@ -1,34 +1,23 @@
-import { SITE, links } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import styles from "./home-page.module.css";
 
 export function HomePage() {
   return (
     <main className={styles.main}>
-      <div className={styles.atmosphere} aria-hidden="true" />
-
-      <section className={styles.stage} aria-labelledby="name">
+      <section className={styles.hero} aria-labelledby="name">
         <h1 id="name" className={styles.name}>
-          {SITE.name}
+          <span className={styles.first}>Felipe</span>
+          <span className={styles.last}>Maffezzolli</span>
         </h1>
         <p className={styles.subtitle}>{SITE.subtitle}</p>
-
-        <nav className={styles.nav} aria-label="Links">
-          <ul className={styles.list}>
-            {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  className={styles.link}
-                  href={link.href}
-                  {...(link.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <p className={styles.hint}>
+          Pressione{" "}
+          <kbd className={styles.kbd}>
+            <span>⌘</span>
+            <span>K</span>
+          </kbd>{" "}
+          ou use o menu para navegar.
+        </p>
       </section>
     </main>
   );

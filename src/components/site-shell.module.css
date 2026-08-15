@@ -1,0 +1,176 @@
+.root {
+  position: relative;
+  isolation: isolate;
+  min-height: 100dvh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.glow {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  width: min(72rem, 100%);
+  margin-inline: auto;
+  padding: 1.15rem var(--page-pad) 0.75rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 6px;
+  color: var(--fg);
+  transition:
+    border-color 200ms var(--ease),
+    background-color 200ms var(--ease);
+}
+
+.brand:hover {
+  border-color: var(--hairline-strong);
+  background: var(--lift);
+}
+
+.monogram {
+  font-family: var(--font-display), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.nav {
+  justify-self: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink,
+.navLinkActive {
+  display: inline-flex;
+  padding: 0.4rem 0.65rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 180ms var(--ease);
+}
+
+.navLink:hover {
+  color: var(--fg);
+}
+
+.navLinkActive {
+  color: var(--fg);
+}
+
+.commandButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.7rem;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  transition:
+    border-color 180ms var(--ease),
+    color 180ms var(--ease),
+    background-color 180ms var(--ease);
+}
+
+.commandButton:hover {
+  border-color: var(--hairline-strong);
+  color: var(--fg);
+  background: var(--lift);
+}
+
+.commandLabel {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.16rem 0.35rem;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.66rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .header {
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "brand command"
+      "nav nav";
+    row-gap: 0.85rem;
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .commandButton {
+    grid-area: command;
+    justify-self: end;
+  }
+
+  .nav {
+    grid-area: nav;
+    justify-self: stretch;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navList {
+    width: max-content;
+    margin-inline: auto;
+  }
+
+  .commandLabel {
+    display: none;
+  }
+}
