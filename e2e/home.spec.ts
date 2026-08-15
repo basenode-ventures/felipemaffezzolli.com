@@ -48,11 +48,13 @@ test("projects page lists companies without invented metrics", async ({
     await expect(page.getByRole("heading", { name })).toBeVisible();
   }
 
-  await expect(
-    page.getByRole("link", { name: /Visitar/ }).filter({
-      has: page.locator('[href="https://www.hubxp.com.br"]'),
-    }),
-  ).toHaveCount(1);
+  const hubXp = page
+    .getByRole("listitem")
+    .filter({ has: page.getByRole("heading", { name: "Hub XP" }) });
+  await expect(hubXp.getByRole("link", { name: /Visitar/ })).toHaveAttribute(
+    "href",
+    "https://www.hubxp.com.br",
+  );
 
   const elegant = page
     .getByRole("listitem")
